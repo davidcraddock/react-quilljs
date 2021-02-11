@@ -66,7 +66,7 @@ export const useQuill = (options: QuillOptionsStatic | undefined = { theme, modu
     if (!obj.Quill) { obj.Quill = require('quill') as Quill; }
     if (obj.Quill && !obj.quill && quillRef && quillRef.current && isLoaded) {
       const opts = assign(options, {
-        modules: assign(modules, options.modules),
+        modules: options.modules || modules,
         formats: options.formats || formats,
         theme: options.theme || theme,
       })
